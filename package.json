@@ -26,7 +26,8 @@
   "author": "wangcch <wangcch.cc@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "lodash-es": "^4.17.15"
+    "lodash-es": "^4.17.15",
+    "use-debounce": "^3.3.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",
