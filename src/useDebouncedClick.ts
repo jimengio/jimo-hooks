@@ -1,4 +1,3 @@
-import {} from "react";
 import useAsyncClick from "./useAsyncClick";
 import useDebouncedCallback from "./useDebouncedCallback";
 
@@ -10,10 +9,10 @@ import useDebouncedCallback from "./useDebouncedCallback";
  * @param options maxWait, leading, trailing
  */
 export default function useDebouncedClick<O>(
-  asyncFunc: (o: O) => Promise<void>,
+  asyncFunc: (o?: O) => Promise<void>,
   wait = 300,
   options?: { maxWait?: number; leading?: boolean; trailing?: boolean }
-): [(o: O) => void, boolean, () => void, () => void] {
+): [(o?: O) => void, boolean, () => void, () => void] {
   const [asyncClick, loading] = useAsyncClick<O>(asyncFunc);
 
   const [
@@ -21,7 +20,7 @@ export default function useDebouncedClick<O>(
     cancelDebouncedCallback,
     callPending,
   ] = useDebouncedCallback(
-    (args: O) => {
+    (args?: O) => {
       asyncClick(args);
     },
     wait,

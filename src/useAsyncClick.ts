@@ -6,12 +6,12 @@ import { useState, useCallback } from "react";
  * @param asyncFunc
  */
 export default function useAsyncClick<O>(
-  asyncFunc: (o: O) => Promise<void>
-): [(o: O) => void, boolean] {
+  asyncFunc: (o?: O) => Promise<void>
+): [(o?: O) => void, boolean] {
   const [loading, setLoading] = useState(false);
 
   const onAsyncEvent = useCallback(
-    async (options: O) => {
+    async (options?: O) => {
       try {
         setLoading(true);
         await asyncFunc(options);
