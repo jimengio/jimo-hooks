@@ -2,9 +2,9 @@
 
 Collection of some react hooks
 
-[![CI](https://github.com/jimengio/hooks/workflows/CI/badge.svg?branch=master)](https://github.com/jimengio/hooks/actions?query=workflow%3ACI)
-[![npm](https://img.shields.io/npm/v/@jimengio/hooks.svg)](https://www.npmjs.com/package/@jimengio/hooks)
-[![GitHub license](https://img.shields.io/github/license/jimengio/hooks)](https://github.com/jimengio/hooks/blob/master/LICENSE)
+[![CI](https://github.com/jimengio/jimo-hooks/workflows/CI/badge.svg?branch=master)](https://github.com/jimengio/jimo-hooks/actions?query=workflow%3ACI)
+[![npm](https://img.shields.io/npm/v/@jimengio/jimo-hooks.svg)](https://www.npmjs.com/package/@jimengio/jimo-hooks)
+[![GitHub license](https://img.shields.io/github/license/jimengio/jimo-hooks)](https://github.com/jimengio/jimo-hooks/blob/master/LICENSE)
 
 ## Usage
 

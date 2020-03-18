@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jimengio/hooks.git"
+    "url": "git+https://github.com/jimengio/jimo-hooks.git"
   },
   "keywords": [
     "react",
