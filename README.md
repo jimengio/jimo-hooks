@@ -22,6 +22,7 @@ yarn add @jimengio/jimo-hooks
 - [useDebouncedClick](###useDebouncedClick)
 - [useDeepCompareCache](###useDeepCompareCache)
 - [useDeepEffect](###useDeepEffect)
+- [useLoadImg](###useLoadImg)
 
 ### useAsyncClick
 
@@ -32,7 +33,7 @@ Click event with `loading`
 | asyncFunc | function |         | async function |
 
 ```tsx
-import { useAsyncClick } from "@react-cmpt/hooks";
+import { useAsyncClick } from "@jimengio/jimo-hooks";
 
 const asyncFn = async () => {
   // do something
@@ -64,7 +65,7 @@ options:
 > [more options](https://github.com/xnimorz/use-debounce#options)
 
 ```tsx
-import { useDebounce } from "@react-cmpt/hooks";
+import { useDebounce } from "@jimengio/jimo-hooks";
 
 const Demo = () => {
   const [text, setText] = useState("hello");
@@ -94,7 +95,7 @@ const Demo = () => {
 | options  | Object   |         |         |
 
 ```tsx
-import { useDebouncedCallback } from "@react-cmpt/hooks";
+import { useDebouncedCallback } from "@jimengio/jimo-hooks";
 
 const Demo = () => {
   const [value, setValue] = useState();
@@ -128,7 +129,7 @@ Click event with `loading` and `debounce`
 | options   | Object   |         | useDebouncedCallbackArgs["options"] |
 
 ```tsx
-import { useDebouncedClick } from "@react-cmpt/hooks";
+import { useDebouncedClick } from "@jimengio/jimo-hooks";
 
 const asyncFn = async () => {
   // do something
@@ -148,7 +149,7 @@ const Demo = () => {
 | value  | any  |         |         |
 
 ```tsx
-import { useDeepCompareCache } from "@react-cmpt/hooks";
+import { useDeepCompareCache } from "@jimengio/jimo-hooks";
 
 const obj1 = { a: 1, b: { b1: 2 } };
 const obj2 = { a: 1, b: { b1: 2 } };
@@ -172,7 +173,7 @@ Deep comparison React.useEffect
 | deps   | Array    |         | If present, effect will only activate if the values in the list change. |
 
 ```tsx
-import { useDeepEffect } from "@react-cmpt/hooks";
+import { useDeepEffect } from "@jimengio/jimo-hooks";
 
 const Demo = ({ value: Object }) => {
   useDeepEffect(() => {
@@ -180,6 +181,38 @@ const Demo = ({ value: Object }) => {
   }, [value]);
 
   // ...
+};
+```
+
+### useLoadImg
+
+Get image loading status
+
+| option     | type    | default | explain         |
+| ---------- | ------- | ------- | --------------- |
+| src        | string  |         | `<img />` src   |
+| reqLoading | boolean |         | request loading |
+| className  | string  |         |                 |
+| style      | Object  |         |                 |
+| imgPorps   | Object  |         | `<img />` props |
+
+| return  | type                                    | default | explain       |
+| ------- | --------------------------------------- | ------- | ------------- |
+| imgNode | JSX.Element                             |         | `<img />`     |
+| state   | `"loading" | "done" | "error" | "idle"` | `idle`  | image state   |
+| loading | boolean                                 |         |               |
+| isError | boolean                                 |         | image errored |
+
+```tsx
+import { useLoadImg } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  const { imgNode, loading } = useLoadImg({
+    src: "[PATH]/demo.jpg",
+    style: { width: "100%" },
+  });
+
+  return <div data-loading={loading}>{imgNode}</div>;
 };
 ```
 
