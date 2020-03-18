@@ -1,5 +1,5 @@
 {
-  "name": "@jimengio/hooks",
+  "name": "@jimengio/jimo-hooks",
   "version": "0.1.0",
   "description": "Some react hooks",
   "main": "lib/index.js",

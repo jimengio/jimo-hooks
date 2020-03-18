@@ -1,4 +1,4 @@
-# React Hooks
+# Jimo React Hooks
 
 Collection of some react hooks
 
@@ -11,7 +11,7 @@ Collection of some react hooks
 ### Installation
 
 ```shell
-yarn add @react-cmpt/hooks
+yarn add @jimengio/jimo-hooks
 ```
 
 ## Hooks
