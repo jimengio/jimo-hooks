@@ -16,13 +16,13 @@ yarn add @jimengio/jimo-hooks
 
 ## Hooks
 
-- [useAsyncClick](###useAsyncClick)
-- [useDebounce](###useDebounce)
-- [useDebouncedCallback](###useDebouncedCallback)
-- [useDebouncedClick](###useDebouncedClick)
-- [useDeepCompareCache](###useDeepCompareCache)
-- [useDeepEffect](###useDeepEffect)
-- [useLoadImg](###useLoadImg)
+- [useAsyncClick](#useAsyncClick)
+- [useDebounce](#useDebounce)
+- [useDebouncedCallback](#useDebouncedCallback)
+- [useDebouncedClick](#useDebouncedClick)
+- [useDeepCompareCache](#useDeepCompareCache)
+- [useDeepEffect](#useDeepEffect)
+- [useLoadImg](#useLoadImg)
 
 ### useAsyncClick
 
@@ -196,12 +196,12 @@ Get image loading status
 | style      | Object  |         |                 |
 | imgPorps   | Object  |         | `<img />` props |
 
-| return  | type                                    | default | explain       |
-| ------- | --------------------------------------- | ------- | ------------- |
-| imgNode | JSX.Element                             |         | `<img />`     |
-| state   | `"loading" | "done" | "error" | "idle"` | `idle`  | image state   |
-| loading | boolean                                 |         |               |
-| isError | boolean                                 |         | image errored |
+| return  | type                               | default | explain       |
+| ------- | ---------------------------------- | ------- | ------------- |
+| imgNode | JSX.Element                        |         | `<img />`     |
+| state   | `loading`, `done`, `error`, `idle` | `idle`  | image state   |
+| loading | boolean                            |         |               |
+| isError | boolean                            |         | image errored |
 
 ```tsx
 import { useLoadImg } from "@jimengio/jimo-hooks";
