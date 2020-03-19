@@ -4,6 +4,7 @@ import useDebouncedCallback from "./useDebouncedCallback";
 import useDebouncedClick from "./useDebouncedClick";
 import useDeepCompareCache from "./useDeepCompareCache";
 import useDeepEffect from "./useDeepEffect";
+import useLoadImg from "./useLoadImg";
 
 export {
   useAsyncClick,
@@ -12,4 +13,5 @@ export {
   useDebouncedClick,
   useDeepCompareCache,
   useDeepEffect,
+  useLoadImg,
 };
