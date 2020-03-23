@@ -194,7 +194,7 @@ Get image loading status
 | reqLoading | boolean |         | request loading |
 | className  | string  |         |                 |
 | style      | Object  |         |                 |
-| imgPorps   | Object  |         | `<img />` props |
+| imgProps   | Object  |         | `<img />` props |
 
 | return  | type                               | default | explain       |
 | ------- | ---------------------------------- | ------- | ------------- |

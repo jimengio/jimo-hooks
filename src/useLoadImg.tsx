@@ -13,7 +13,7 @@ export default function useLoadImg(options: {
   reqLoading?: boolean;
   className?: string;
   style?: CSSProperties;
-  imgPorps?: React.DetailedHTMLProps<
+  imgProps?: React.DetailedHTMLProps<
     React.ImgHTMLAttributes<HTMLImageElement>,
     HTMLImageElement
   >;
@@ -23,7 +23,7 @@ export default function useLoadImg(options: {
   loading: boolean;
   isError: boolean;
 } {
-  const { src, reqLoading, className, style, imgPorps } = options;
+  const { src, reqLoading, className, style, imgProps } = options;
   const [state, setState] = useState<EImgState>("idle");
 
   const loading = (state === "loading" && src != null) || !!reqLoading;
@@ -32,17 +32,17 @@ export default function useLoadImg(options: {
   const handleImageLoaded = useCallback(
     (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
       setState("done");
-      imgPorps?.onLoad && imgPorps.onLoad(e);
+      imgProps?.onLoad && imgProps.onLoad(e);
     },
-    [imgPorps]
+    [imgProps]
   );
 
   const handleImageErrored = useCallback(
     (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
       setState("error");
-      imgPorps?.onError && imgPorps.onError(e);
+      imgProps?.onError && imgProps.onError(e);
     },
-    [imgPorps]
+    [imgProps]
   );
 
   useEffect(() => {
@@ -58,13 +58,13 @@ export default function useLoadImg(options: {
       <img
         className={className}
         style={style}
-        {...imgPorps}
+        {...imgProps}
         src={src}
         onLoad={handleImageLoaded}
         onError={handleImageErrored}
       />
     ),
-    [className, style, src, handleImageLoaded, handleImageErrored, imgPorps]
+    [className, style, src, handleImageLoaded, handleImageErrored, imgProps]
   );
 
   return { imgNode, state, loading, isError };

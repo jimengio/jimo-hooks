@@ -18,7 +18,7 @@ describe("useLoadImg", () => {
     const onError = jest.fn();
     const onLoad = jest.fn();
     const { result } = renderHook(() =>
-      useLoadImg({ src: "./demo.jpg", imgPorps: { onError, onLoad } })
+      useLoadImg({ src: "./demo.jpg", imgProps: { onError, onLoad } })
     );
 
     expect(result.current.imgNode).not.toBeNull();
