@@ -22,6 +22,7 @@ yarn add @jimengio/jimo-hooks
 - [useDebouncedClick](#useDebouncedClick)
 - [useDeepCompareCache](#useDeepCompareCache)
 - [useDeepEffect](#useDeepEffect)
+- [useDocumentTitle](#useDocumentTitle)
 - [useLoadImg](#useLoadImg)
 
 ### useAsyncClick
@@ -181,6 +182,25 @@ const Demo = ({ value: Object }) => {
   }, [value]);
 
   // ...
+};
+```
+
+### useDocumentTitle
+
+Setting page title
+
+| option  | type             | default | explain                  |
+| ------- | ---------------- | ------- | ------------------------ |
+| title   | string, function |         | title or title formatter |
+| restore | boolean          | false   | restore on unmount       |
+
+```tsx
+import { useDocumentTitle } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  useDocumentTitle("page title");
+
+  return <div />;
 };
 ```
 
