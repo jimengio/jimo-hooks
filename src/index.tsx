@@ -5,6 +5,7 @@ import useDebouncedClick from "./useDebouncedClick";
 import useDeepCompareCache from "./useDeepCompareCache";
 import useDeepEffect from "./useDeepEffect";
 import useLoadImg from "./useLoadImg";
+import useUpdateEffect from "./useUpdateEffect";
 
 export {
   useAsyncClick,
@@ -14,4 +15,5 @@ export {
   useDeepCompareCache,
   useDeepEffect,
   useLoadImg,
+  useUpdateEffect,
 };

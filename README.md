@@ -23,6 +23,7 @@ yarn add @jimengio/jimo-hooks
 - [useDeepCompareCache](#useDeepCompareCache)
 - [useDeepEffect](#useDeepEffect)
 - [useLoadImg](#useLoadImg)
+- [useUpdateEffect](#useUpdateEffect)
 
 ### useAsyncClick
 
@@ -213,6 +214,27 @@ const Demo = () => {
   });
 
   return <div data-loading={loading}>{imgNode}</div>;
+};
+```
+
+### useUpdateEffect
+
+React.useEffect cancel the first mount trigger
+
+| option | type     | default | explain                                                                 |
+| ------ | -------- | ------- | ----------------------------------------------------------------------- |
+| effect | function |         | Imperative function that can return a cleanup function                  |
+| deps   | Array    |         | If present, effect will only activate if the values in the list change. |
+
+```tsx
+import { useUpdateEffect } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  useUpdateEffect(() => {
+    console.log(value);
+  }, [value]);
+
+  // ...
 };
 ```
 
