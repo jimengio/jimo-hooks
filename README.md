@@ -23,6 +23,8 @@ yarn add @jimengio/jimo-hooks
 - [useDeepCompareCache](#useDeepCompareCache)
 - [useDeepEffect](#useDeepEffect)
 - [useLoadImg](#useLoadImg)
+- [useThrottle](#useThrottle)
+- [useThrottleFn](#useThrottleFn)
 - [useUnmount](#useUnmount)
 - [useUpdateEffect](#useUpdateEffect)
 
@@ -215,6 +217,55 @@ const Demo = () => {
   });
 
   return <div data-loading={loading}>{imgNode}</div>;
+};
+```
+
+### useThrottle
+
+throttle value
+
+| option | type   | default | explain |
+| ------ | ------ | ------- | ------- |
+| value  | any    |         |         |
+| wait   | number | 300     |         |
+
+| return | type | default       | explain |
+| ------ | ---- | ------------- | ------- |
+| value  | any  | options.value |         |
+
+```tsx
+import { useThrottle } from "@jimengio/jimo-hooks";
+
+const Demo = ({ value }) => {
+  const tValue = useThrottle(value);
+
+  // ...
+};
+```
+
+### useThrottleFn
+
+throttle function
+
+| option | type     | default | explain |
+| ------ | -------- | ------- | ------- |
+| fn     | function |         |         |
+| wait   | number   | 300     |         |
+
+| return   | type     | default | explain |
+| -------- | -------- | ------- | ------- |
+| callback | function |         |         |
+| cancel   | function |         |         |
+
+```tsx
+import { useThrottleFn } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  const { callback, cancel } = useThrottleFn(() => {
+    console.log("click");
+  });
+
+  return <button onClick={callback}>++</button>;
 };
 ```
 
