@@ -23,6 +23,7 @@ yarn add @jimengio/jimo-hooks
 - [useDeepCompareCache](#useDeepCompareCache)
 - [useDeepEffect](#useDeepEffect)
 - [useLoadImg](#useLoadImg)
+- [useUnmount](#useUnmount)
 - [useUpdateEffect](#useUpdateEffect)
 
 ### useAsyncClick
@@ -214,6 +215,26 @@ const Demo = () => {
   });
 
   return <div data-loading={loading}>{imgNode}</div>;
+};
+```
+
+### useUnmount
+
+Unmount callback
+
+| option | type     | default | explain |
+| ------ | -------- | ------- | ------- |
+| fn     | function |         |         |
+
+```tsx
+import { useUnmount } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  useUnmount(() => {
+    console.log("Unmount");
+  });
+
+  // ...
 };
 ```
 
