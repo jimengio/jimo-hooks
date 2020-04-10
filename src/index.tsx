@@ -5,6 +5,10 @@ import useDebouncedClick from "./useDebouncedClick";
 import useDeepCompareCache from "./useDeepCompareCache";
 import useDeepEffect from "./useDeepEffect";
 import useLoadImg from "./useLoadImg";
+import useThrottle from "./useThrottle";
+import useThrottleFn from "./useThrottleFn";
+import useUnmount from "./useUnmount";
+import useUpdateEffect from "./useUpdateEffect";
 
 export {
   useAsyncClick,
@@ -14,4 +18,8 @@ export {
   useDeepCompareCache,
   useDeepEffect,
   useLoadImg,
+  useThrottle,
+  useThrottleFn,
+  useUnmount,
+  useUpdateEffect,
 };

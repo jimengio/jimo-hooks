@@ -23,6 +23,10 @@ yarn add @jimengio/jimo-hooks
 - [useDeepCompareCache](#useDeepCompareCache)
 - [useDeepEffect](#useDeepEffect)
 - [useLoadImg](#useLoadImg)
+- [useThrottle](#useThrottle)
+- [useThrottleFn](#useThrottleFn)
+- [useUnmount](#useUnmount)
+- [useUpdateEffect](#useUpdateEffect)
 
 ### useAsyncClick
 
@@ -213,6 +217,96 @@ const Demo = () => {
   });
 
   return <div data-loading={loading}>{imgNode}</div>;
+};
+```
+
+### useThrottle
+
+throttle value
+
+| option | type   | default | explain |
+| ------ | ------ | ------- | ------- |
+| value  | any    |         |         |
+| wait   | number | 300     |         |
+
+| return | type | default       | explain |
+| ------ | ---- | ------------- | ------- |
+| value  | any  | options.value |         |
+
+```tsx
+import { useThrottle } from "@jimengio/jimo-hooks";
+
+const Demo = ({ value }) => {
+  const tValue = useThrottle(value);
+
+  // ...
+};
+```
+
+### useThrottleFn
+
+throttle function
+
+| option | type     | default | explain |
+| ------ | -------- | ------- | ------- |
+| fn     | function |         |         |
+| wait   | number   | 300     |         |
+
+| return   | type     | default | explain |
+| -------- | -------- | ------- | ------- |
+| callback | function |         |         |
+| cancel   | function |         |         |
+
+```tsx
+import { useThrottleFn } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  const { callback, cancel } = useThrottleFn(() => {
+    console.log("click");
+  });
+
+  return <button onClick={callback}>++</button>;
+};
+```
+
+### useUnmount
+
+Unmount callback
+
+| option | type     | default | explain |
+| ------ | -------- | ------- | ------- |
+| fn     | function |         |         |
+
+```tsx
+import { useUnmount } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  useUnmount(() => {
+    console.log("Unmount");
+  });
+
+  // ...
+};
+```
+
+### useUpdateEffect
+
+React.useEffect cancel the first mount trigger
+
+| option | type     | default | explain                                                                 |
+| ------ | -------- | ------- | ----------------------------------------------------------------------- |
+| effect | function |         | Imperative function that can return a cleanup function                  |
+| deps   | Array    |         | If present, effect will only activate if the values in the list change. |
+
+```tsx
+import { useUpdateEffect } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  useUpdateEffect(() => {
+    console.log(value);
+  }, [value]);
+
+  // ...
 };
 ```
 
