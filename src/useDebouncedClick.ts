@@ -8,20 +8,20 @@ import useDebouncedCallback from "./useDebouncedCallback";
  * @param wait number @default 300
  * @param options maxWait, leading, trailing
  */
-export default function useDebouncedClick<O>(
-  asyncFunc: (o?: O) => Promise<void>,
+export default function useDebouncedClick<R = any, Args extends any[] = any[]>(
+  asyncFunc: (...args: Args) => Promise<R>,
   wait = 300,
   options?: { maxWait?: number; leading?: boolean; trailing?: boolean }
-): [(o?: O) => void, boolean, () => void, () => void] {
-  const [asyncClick, loading] = useAsyncClick<O>(asyncFunc);
+): [(...args: Args) => void, boolean, () => void, () => void] {
+  const [asyncClick, loading] = useAsyncClick<R, Args>(asyncFunc);
 
   const [
     onClickEvent,
     cancelDebouncedCallback,
     callPending,
-  ] = useDebouncedCallback(
-    (args?: O) => {
-      asyncClick(args);
+  ] = useDebouncedCallback<Args>(
+    async (...args: Args) => {
+      await asyncClick(...args);
     },
     wait,
     options

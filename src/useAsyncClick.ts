@@ -5,18 +5,18 @@ import { useState, useCallback } from "react";
  *
  * @param asyncFunc
  */
-export default function useAsyncClick<O>(
-  asyncFunc: (o?: O) => Promise<void>
-): [(o?: O) => void, boolean] {
+export default function useAsyncClick<R = any, Args extends any[] = any[]>(
+  asyncFunc: (...args: Args) => Promise<R>
+): [(...args: Args) => Promise<R> | Error, boolean] {
   const [loading, setLoading] = useState(false);
 
   const onAsyncEvent = useCallback(
-    async (options?: O) => {
+    async (...args: Args) => {
       try {
         setLoading(true);
-        await asyncFunc(options);
+        return await asyncFunc(...args);
       } catch (error) {
-        console.error("useAsyncFn loading error: %o", error);
+        return error;
       } finally {
         setLoading(false);
       }
