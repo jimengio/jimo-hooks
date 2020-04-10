@@ -32,9 +32,16 @@ yarn add @jimengio/jimo-hooks
 
 Click event with `loading`
 
-| option    | type     | default | explain        |
-| --------- | -------- | ------- | -------------- |
-| asyncFunc | function |         | async function |
+| option    | type     | default              | explain           |
+| --------- | -------- | -------------------- | ----------------- |
+| asyncFunc | function |                      | async function    |
+| initState | Object   | `{ loading: false }` | initial `loading` |
+
+| return   | type     | default | explain     |
+| -------- | -------- | ------- | ----------- |
+| callback | function |         |             |
+| loading  | boolean  |         |             |
+| error    | Error    |         | catch error |
 
 ```tsx
 import { useAsyncClick } from "@jimengio/jimo-hooks";
@@ -43,10 +50,10 @@ const asyncFn = async () => {
   // do something
 };
 
-const Demo = () => {
-  const [clickEvent, loading] = useAsyncClick(asyncFn);
+const Demo = ({ asyncFn }) => {
+  const { callback, loading } = useAsyncClick(asyncFn);
 
-  return <Button loading={loading} click={clickEvent} />;
+  return <Button loading={loading} click={callback} />;
 };
 ```
 
@@ -132,6 +139,14 @@ Click event with `loading` and `debounce`
 | delay     | number   | 300     | useDebouncedCallbackArgs["delay"]   |
 | options   | Object   |         | useDebouncedCallbackArgs["options"] |
 
+| return                  | type     | default | explain                                                |
+| ----------------------- | -------- | ------- | ------------------------------------------------------ |
+| callback                | function |         |                                                        |
+| loading                 | boolean  |         |                                                        |
+| cancelDebouncedCallback | function |         | useDebouncedCallbackReturns["cancelDebouncedCallback"] |
+| callPending             | function |         | useDebouncedCallbackReturns["callPending"]             |
+| error                   | Error    |         | catch error                                            |
+
 ```tsx
 import { useDebouncedClick } from "@jimengio/jimo-hooks";
 
@@ -139,10 +154,10 @@ const asyncFn = async () => {
   // do something
 };
 
-const Demo = () => {
-  const [clickEvent, loading] = useDebounceClick(asyncFn);
+const Demo = ({ asyncFn }) => {
+  const { callback, loading } = useDebounceClick(asyncFn);
 
-  return <Button loading={loading} click={clickEvent} />;
+  return <Button loading={loading} click={callback} />;
 };
 ```
 
