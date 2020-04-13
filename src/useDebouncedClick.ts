@@ -1,7 +1,7 @@
 import useAsyncClick from "./useAsyncClick";
 import useDebouncedCallback from "./useDebouncedCallback";
 
-export type ReturnReslut<Args extends any[] = any[]> = {
+export type ReturnResult<Args extends any[] = any[]> = {
   callback: (...args: Args) => void;
   loading: boolean;
   cancelDebouncedCallback: () => void;
@@ -20,7 +20,7 @@ export default function useDebouncedClick<R = any, Args extends any[] = any[]>(
   asyncFunc: (...args: Args) => Promise<R>,
   wait = 300,
   options?: { maxWait?: number; leading?: boolean; trailing?: boolean }
-): ReturnReslut<Args> {
+): ReturnResult<Args> {
   const { callback, loading, error } = useAsyncClick<R, Args>(asyncFunc);
 
   const [
