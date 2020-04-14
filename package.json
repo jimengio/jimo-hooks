@@ -9,6 +9,7 @@
     "test": "jest -c jest.json",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "prettier": "prettier --write './src/**/*.{ts,tsx}' --config ./.prettierrc",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "prepare": "yarn build"
   },
   "repository": {
@@ -41,6 +42,7 @@
     "@types/react-transition-group": "^4.2.3",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
+    "conventional-changelog-cli": "^2.0.31",
     "emotion": "^10.0.17",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
