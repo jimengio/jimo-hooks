@@ -1,28 +1,46 @@
 import { useState, useCallback } from "react";
 
+export type AsyncState = {
+  loading: boolean;
+  error?: Error | undefined;
+};
+
 /**
  * useAsyncClick
  *
  * @param asyncFunc
  */
-export default function useAsyncClick<O>(
-  asyncFunc: (o?: O) => Promise<void>
-): [(o?: O) => void, boolean] {
-  const [loading, setLoading] = useState(false);
-
-  const onAsyncEvent = useCallback(
-    async (options?: O) => {
-      try {
-        setLoading(true);
-        await asyncFunc(options);
-      } catch (error) {
-        console.error("useAsyncFn loading error: %o", error);
-      } finally {
-        setLoading(false);
-      }
-    },
-    [setLoading, asyncFunc]
+export default function useAsyncClick<R = any, Args extends any[] = any[]>(
+  asyncFunc: (...args: Args) => Promise<R>,
+  initState?: AsyncState
+): {
+  callback: (...args: Args) => Promise<R>;
+  loading: boolean;
+  error: Error | undefined;
+} {
+  const [state, setState] = useState<AsyncState>(
+    initState || { loading: false }
   );
 
-  return [onAsyncEvent, loading];
+  const onAsyncEvent = useCallback(
+    async (...args: Args) => {
+      try {
+        setState({ loading: true });
+        const result = await asyncFunc(...args);
+
+        setState({ loading: false, error: undefined });
+        return result;
+      } catch (error) {
+        setState({ loading: false, error });
+        return error;
+      }
+    },
+    [asyncFunc]
+  );
+
+  return {
+    callback: onAsyncEvent,
+    loading: state.loading,
+    error: state.error,
+  };
 }
