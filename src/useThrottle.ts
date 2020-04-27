@@ -1,23 +1,10 @@
-import { useState } from "react";
-import useUpdateEffect from "./useUpdateEffect";
-import useThrottleFn from "./useThrottleFn";
+import { useThrottle } from "@react-cmpt/use-throttle";
 
 /**
  * useThrottle
  *
  * @param value
- * @param wait number @default 300
+ * @param wait number @default 0
+ * @param options object
  */
-export default function useThrottle<T>(value: T, wait = 300): T {
-  const [state, setState] = useState<T>(value);
-
-  const { callback } = useThrottleFn((v: T) => {
-    setState(v);
-  }, wait);
-
-  useUpdateEffect(() => {
-    callback(value);
-  }, [value]);
-
-  return state;
-}
+export default useThrottle;
