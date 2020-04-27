@@ -4,8 +4,12 @@
   "description": "Some react hooks",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "module": "esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "rm -rf ./lib/ && tsc -d --project tsconfig.json --outDir ./lib/",
+    "build": "rm -rf ./lib/* ./esm/* && yarn build:cjs && yarn build:es",
+    "build:cjs": "tsc",
+    "build:es": "tsc -p ./tsconfig.es.json",
     "test": "jest -c jest.json",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "prettier": "prettier --write './src/**/*.{ts,tsx}' --config ./.prettierrc",
@@ -24,8 +28,9 @@
   "author": "wangcch <wangcch.cc@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@react-cmpt/use-throttle": "^0.2.0",
     "lodash.isequal": "^4.5.0",
-    "use-debounce": "^3.4.1"
+    "use-debounce": "^3.4.2"
   },
   "peerDependencies": {
     "react": "^16.8.0",
