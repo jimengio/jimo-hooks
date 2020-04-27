@@ -136,7 +136,7 @@ Click event with `loading` and `debounce`
 | option    | type     | default | explain                             |
 | --------- | -------- | ------- | ----------------------------------- |
 | asyncFunc | function |         | async function                      |
-| delay     | number   | 300     | useDebouncedCallbackArgs["delay"]   |
+| delay     | number   | 0       | useDebouncedCallbackArgs["delay"]   |
 | options   | Object   |         | useDebouncedCallbackArgs["options"] |
 
 | return                  | type     | default | explain                                                |

@@ -13,12 +13,12 @@ export type ReturnResult<Args extends any[] = any[]> = {
  * useDebouncedClick
  *
  * @param asyncFunc
- * @param wait number @default 300
+ * @param wait number @default 0
  * @param options maxWait, leading, trailing
  */
 export default function useDebouncedClick<R = any, Args extends any[] = any[]>(
   asyncFunc: (...args: Args) => Promise<R>,
-  wait = 300,
+  wait = 0,
   options?: { maxWait?: number; leading?: boolean; trailing?: boolean }
 ): ReturnResult<Args> {
   const { callback, loading, error } = useAsyncClick<R, Args>(asyncFunc);
