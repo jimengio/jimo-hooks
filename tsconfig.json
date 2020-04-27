@@ -3,11 +3,13 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "target": "es5",
-    "module": "esnext",
+    "module": "commonjs",
     "strict": true,
     "jsx": "react",
     "lib": ["dom", "esnext"],
-    "sourceMap": true
+    "allowJs": true,
+    "outDir": "./lib",
+    "declaration": true
   },
   "include": ["src/**/*"]
 }
