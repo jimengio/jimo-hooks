@@ -1,3 +1,13 @@
+# [0.2.0](https://github.com/jimengio/jimo-hooks/compare/0.2.0-alpha...0.2.0) (2020-04-27)
+
+
+### Features
+
+* remove the default wait value ([90438b6](https://github.com/jimengio/jimo-hooks/commit/90438b64c7ec1388bb4c556de4d1b7a98372779c))
+* useThrottle / useThrottleFn (deps) ([2500062](https://github.com/jimengio/jimo-hooks/commit/2500062b84a5c751ff3d2e552827f46d1322db7a))
+
+
+
 # [0.2.0-alpha](https://github.com/jimengio/jimo-hooks/compare/0.1.0...0.2.0-alpha) (2020-04-14)
 
 
