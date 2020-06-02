@@ -563,10 +563,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@react-cmpt/use-throttle@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@react-cmpt/use-throttle/-/use-throttle-0.2.0.tgz#5c9598ca92f30863f4c01dc1cd5191edf7cac79b"
-  integrity sha512-MljUaErh+IpGMuy9pZuoeo7sM7/oVNO1SLOerAt1vCRYAvmiJFlaTQ3uPM9fMhUx2lK/8XwCs3FF+ZL3+Yz+4A==
+"@react-cmpt/use-throttle@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@react-cmpt/use-throttle/-/use-throttle-0.2.1.tgz#597bac9664258c83b9da20c0cba00e9fafbd3710"
+  integrity sha512-YamricKbtFhtCEM1UjzaeVGfnyOPMZzawyjh7VW5/2Mb34LywlSpkqX55ytKGwaXRhzOzlbmjnM6xvB3l0I2ig==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"

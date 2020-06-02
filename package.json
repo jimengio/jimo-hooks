@@ -28,7 +28,7 @@
   "author": "wangcch <wangcch.cc@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@react-cmpt/use-throttle": "^0.2.0",
+    "@react-cmpt/use-throttle": "^0.2.1",
     "lodash.isequal": "^4.5.0",
     "use-debounce": "^3.4.2"
   },
