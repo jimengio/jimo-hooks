@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/jimengio/jimo-hooks/compare/v0.2.0...v0.2.1) (2020-06-02)
+
+
+### Bug Fixes
+
+* **useThrottleFn:** callPending repeatedly ([7acaaef](https://github.com/jimengio/jimo-hooks/commit/7acaaef1ed6b0d6e219708fe440e20092d1f9e15))
+
+
+
 # [0.2.0](https://github.com/jimengio/jimo-hooks/compare/0.2.0-alpha...0.2.0) (2020-04-27)
 
 
