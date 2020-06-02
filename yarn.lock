@@ -563,10 +563,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@react-cmpt/use-throttle@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@react-cmpt/use-throttle/-/use-throttle-0.2.0.tgz#5c9598ca92f30863f4c01dc1cd5191edf7cac79b"
-  integrity sha512-MljUaErh+IpGMuy9pZuoeo7sM7/oVNO1SLOerAt1vCRYAvmiJFlaTQ3uPM9fMhUx2lK/8XwCs3FF+ZL3+Yz+4A==
+"@react-cmpt/use-throttle@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@react-cmpt/use-throttle/-/use-throttle-0.2.1.tgz#597bac9664258c83b9da20c0cba00e9fafbd3710"
+  integrity sha512-YamricKbtFhtCEM1UjzaeVGfnyOPMZzawyjh7VW5/2Mb34LywlSpkqX55ytKGwaXRhzOzlbmjnM6xvB3l0I2ig==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -6244,10 +6244,10 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^3.7.2:
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.2.tgz#27e489b95fa5909445e9fef5ee48d81697ad18fb"
-  integrity sha512-ml7V7JfiN2Xwvcer+XAf2csGO1bPBdRbFCkYBczNZggrBZ9c7G3riSUeJmqEU5uOtXNPMhE3n+R4FA/3YOAWOQ==
+typescript@^3.9.3:
+  version "3.9.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.3.tgz#d3ac8883a97c26139e42df5e93eeece33d610b8a"
+  integrity sha512-D/wqnB2xzNFIcoBG9FG8cXRDjiqSTbG2wd8DMZeQyJlP1vfTkIxH4GKveWaEBYySKIg+USu+E+EDIR47SqnaMQ==
 
 uglify-js@^3.1.4:
   version "3.9.0"
