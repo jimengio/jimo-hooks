@@ -175,8 +175,27 @@ const obj2 = { a: 1, b: { b1: 2 } };
 
 const Demo = () => {
   const obj = useDeepCompareCache(obj1);
+  console.log(obj1 === obj2); // false
   console.log(obj === obj1); // true
   console.log(obj === obj2); // true
+
+  // ...
+};
+```
+
+```tsx
+import { useDeepCompareCache } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  // Deep comparison React.useEffect
+  useEffect(() => {
+    // ...
+  }, useDeepCompareCache([A, B]));
+
+  // Deep comparison React.useCallback
+  const callback = useCallback(() => {
+    // ...
+  }, useDeepCompareCache([A, B]));
 
   // ...
 };
@@ -361,12 +380,17 @@ React.useEffect cancel the first mount trigger
 | deps   | Array    |         | If present, effect will only activate if the values in the list change. |
 
 ```tsx
-import { useUpdateEffect } from "@jimengio/jimo-hooks";
+import { useUpdateEffect, useDeepCompareCache } from "@jimengio/jimo-hooks";
 
 const Demo = () => {
   useUpdateEffect(() => {
     console.log(value);
   }, [value]);
+
+  // Deep comparison useUpdateEffect
+  useUpdateEffect(() => {
+    console.log(value);
+  }, useDeepCompareCache([value]));
 
   // ...
 };
