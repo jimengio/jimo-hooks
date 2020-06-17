@@ -1,3 +1,13 @@
+## [0.2.2](https://github.com/jimengio/jimo-hooks/compare/v0.2.1...v0.2.2) (2020-06-17)
+
+
+### Refactor
+
+* **useLoadImg** useCallback deps use useDeepCompareCache ([825c751](https://github.com/jimengio/jimo-hooks/commit/825c751815c22a657537840cf0b35cc7f49941b1))
+* **useLoadImg** export EImgState type ([825c751](https://github.com/jimengio/jimo-hooks/commit/825c751815c22a657537840cf0b35cc7f49941b1))
+
+
+
 ## [0.2.1](https://github.com/jimengio/jimo-hooks/compare/v0.2.0...v0.2.1) (2020-06-02)
 
 
