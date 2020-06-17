@@ -5,7 +5,7 @@ import useAsyncClick from "../src/useAsyncClick";
 const asyncFn = (count: number): Promise<number> => {
   return new Promise((res, rej) => {
     setTimeout(
-      value => {
+      (value: number) => {
         res(value);
       },
       200,

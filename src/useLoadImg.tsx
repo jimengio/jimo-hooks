@@ -5,18 +5,21 @@ import React, {
   useMemo,
   useCallback,
 } from "react";
+import useDeepCompareCache from "./useDeepCompareCache";
 
-type EImgState = "loading" | "done" | "error" | "idle";
+export type EImgState = "loading" | "done" | "error" | "idle";
+
+type ImageProps = React.DetailedHTMLProps<
+  React.ImgHTMLAttributes<HTMLImageElement>,
+  HTMLImageElement
+>;
 
 export default function useLoadImg(options: {
   src?: string;
   reqLoading?: boolean;
   className?: string;
   style?: CSSProperties;
-  imgProps?: React.DetailedHTMLProps<
-    React.ImgHTMLAttributes<HTMLImageElement>,
-    HTMLImageElement
-  >;
+  imgProps?: ImageProps;
 }): {
   imgNode: JSX.Element;
   state: EImgState;
@@ -32,17 +35,19 @@ export default function useLoadImg(options: {
   const handleImageLoaded = useCallback(
     (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
       setState("done");
-      imgProps?.onLoad && imgProps.onLoad(e);
+      imgProps?.onLoad?.(e);
     },
-    [imgProps]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useDeepCompareCache([imgProps])
   );
 
   const handleImageErrored = useCallback(
     (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
       setState("error");
-      imgProps?.onError && imgProps.onError(e);
+      imgProps?.onError?.(e);
     },
-    [imgProps]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useDeepCompareCache([imgProps])
   );
 
   useEffect(() => {
