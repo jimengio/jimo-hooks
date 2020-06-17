@@ -37,9 +37,8 @@
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "@testing-library/react-hooks": "^3.1.0",
-    "@types/enzyme": "^3.10.3",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@testing-library/react": "^10.2.1",
+    "@testing-library/react-hooks": "^3.3.0",
     "@types/jest": "^25.2.1",
     "@types/lodash.isequal": "^4.5.5",
     "@types/react": "^16.9.9",
@@ -48,8 +47,6 @@
     "@typescript-eslint/parser": "^2.23.0",
     "conventional-changelog-cli": "^2.0.31",
     "emotion": "^10.0.17",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",

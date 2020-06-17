@@ -1,5 +1,3 @@
-import React from "react";
-import { shallow, mount, render } from "enzyme";
 import { renderHook, act } from "@testing-library/react-hooks";
 
 import useLoadImg from "../src/useLoadImg";
@@ -27,11 +25,10 @@ describe("useLoadImg", () => {
     expect(result.current.isError).toEqual(false);
 
     const node = result.current.imgNode;
-    const imgWrapper = mount(node);
 
     // [TODO] Manual
     act(() => {
-      imgWrapper.getElement().props.onError();
+      node.props.onError();
     });
     expect(onError).toHaveBeenCalled();
     expect(result.current.imgNode).not.toBeNull();
@@ -41,7 +38,7 @@ describe("useLoadImg", () => {
 
     // [TODO] Manual
     act(() => {
-      imgWrapper.getElement().props.onLoad();
+      node.props.onLoad();
     });
     expect(onLoad).toHaveBeenCalled();
     expect(result.current.imgNode).not.toBeNull();
@@ -55,16 +52,16 @@ describe("useLoadImg", () => {
       src: "./demo.jpg",
       style: { width: "100%" },
       className: "classname-demo",
+      imgProps: { key: "img-key" },
     };
     const { result } = renderHook(() => useLoadImg(optionsObj));
 
-    const imgWrapper = shallow(result.current.imgNode);
-
-    expect(imgWrapper.getElement().type).toEqual("img");
-    expect(imgWrapper.getElement().props.src).toEqual(optionsObj.src);
-    expect(imgWrapper.getElement().props.style).toEqual(optionsObj.style);
-    expect(imgWrapper.getElement().props.className).toEqual(
+    expect(result.current.imgNode.type).toEqual("img");
+    expect(result.current.imgNode.props.src).toEqual(optionsObj.src);
+    expect(result.current.imgNode.props.style).toEqual(optionsObj.style);
+    expect(result.current.imgNode.props.className).toEqual(
       optionsObj.className
     );
+    expect(result.current.imgNode.key).toEqual(optionsObj.imgProps.key);
   });
 });

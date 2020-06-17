@@ -9,7 +9,7 @@ import useDebouncedClick, { ReturnResult } from "../src/useDebouncedClick";
 const asyncFn = (count: number): Promise<number> => {
   return new Promise((res, rej) => {
     setTimeout(
-      value => {
+      (value: number) => {
         res(value);
       },
       0,
