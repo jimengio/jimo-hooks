@@ -23,6 +23,7 @@ yarn add @jimengio/jimo-hooks
 - [useDeepCompareCache](#useDeepCompareCache)
 - [useDeepEffect](#useDeepEffect)
 - [useLoadImg](#useLoadImg)
+- [useMountedState](#useMountedState)
 - [useThrottle](#useThrottle)
 - [useThrottleFn](#useThrottleFn)
 - [useUnmount](#useUnmount)
@@ -217,6 +218,36 @@ const Demo = ({ value: Object }) => {
   useDeepEffect(() => {
     // do something
   }, [value]);
+
+  // ...
+};
+```
+
+### useMountedState
+
+Check component mount state
+
+| option | type | default | explain |
+| ------ | ---- | ------- | ------- |
+| -      | -    | -       | -       |
+
+| return   | type     | default | explain          |
+| -------- | -------- | ------- | ---------------- |
+| callback | function |         | Get mount status |
+
+```tsx
+import { useMountedState } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  const getMounted = useMountedState();
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (getMounted()) {
+        // do...
+      }
+    }, 1000);
+  }, []);
 
   // ...
 };
