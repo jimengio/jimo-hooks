@@ -12,5 +12,6 @@ export default function useDeepEffect(
   effect: EffectCallback,
   deps?: DependencyList
 ): void {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   return useEffect(effect, useDeepCompareCache(deps));
 }

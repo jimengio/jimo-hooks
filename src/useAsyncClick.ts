@@ -31,7 +31,8 @@ export default function useAsyncClick<R = any, Args extends any[] = any[]>(
         setState({ loading: false, error: undefined });
         return result;
       } catch (error) {
-        setState({ loading: false, error });
+        setState({ loading: false, error: error as Error });
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return error;
       }
     },
