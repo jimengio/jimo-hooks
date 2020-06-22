@@ -85,6 +85,15 @@ describe("useDebouncedClick", () => {
       expect(fn).toHaveBeenCalledTimes(1);
       await hook.waitForNextUpdate();
       expect(count).toEqual(3);
+
+      hook.result.current.callback(4);
+      hook.result.current.callback(5);
+      hook.result.current.callback(6);
+
+      hook.unmount();
+      expect(fn).toHaveBeenCalledTimes(1);
+      jest.advanceTimersByTime(200);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
   });
 });

@@ -47,7 +47,7 @@ describe("useAsyncClick", () => {
   it("Funtion result", async () => {
     let res1;
     let res2;
-    const { result, rerender } = renderHook(
+    const { result, rerender, unmount } = renderHook(
       props => useAsyncClick<number>(props),
       {
         initialProps: asyncFn,
@@ -74,5 +74,16 @@ describe("useAsyncClick", () => {
     expect(res2).toEqual(0);
     expect(result.current.error).toEqual(0);
     expect(result.current.loading).toEqual(false);
+
+    jest.useFakeTimers();
+    rerender(asyncFn);
+    act(() => {
+      result.current.callback(2);
+    });
+
+    expect(result.current.loading).toEqual(true);
+    unmount();
+    jest.runAllTimers();
+    expect(result.current.loading).toEqual(true);
   });
 });
