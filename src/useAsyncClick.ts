@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import useMountedState from "./useMountedState";
 
 export type AsyncState = {
   loading: boolean;
@@ -21,6 +22,7 @@ export default function useAsyncClick<R = any, Args extends any[] = any[]>(
   const [state, setState] = useState<AsyncState>(
     initState || { loading: false }
   );
+  const getMounted = useMountedState();
 
   const onAsyncEvent = useCallback(
     async (...args: Args) => {
@@ -28,15 +30,15 @@ export default function useAsyncClick<R = any, Args extends any[] = any[]>(
         setState({ loading: true });
         const result = await asyncFunc(...args);
 
-        setState({ loading: false, error: undefined });
+        getMounted() && setState({ loading: false, error: undefined });
         return result;
       } catch (error) {
-        setState({ loading: false, error: error as Error });
+        getMounted() && setState({ loading: false, error: error as Error });
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return error;
       }
     },
-    [asyncFunc]
+    [asyncFunc, getMounted]
   );
 
   return {
