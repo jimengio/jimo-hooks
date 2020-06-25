@@ -1,3 +1,17 @@
+# [0.3.0](https://github.com/jimengio/jimo-hooks/compare/v0.2.2...v0.3.0) (2020-06-25)
+
+
+### Bug Fixes
+
+* **useAsyncClick:** abort when component unmounted ([b4c15ad](https://github.com/jimengio/jimo-hooks/commit/b4c15add11cc2f54434bb1470fdeecd0dd3e3b43))
+
+
+### Features
+
+* useMountedState ([9415f65](https://github.com/jimengio/jimo-hooks/commit/9415f6597cb7bc3f24b9d723d3a9d4e4ba821b8b))
+
+
+
 ## [0.2.2](https://github.com/jimengio/jimo-hooks/compare/v0.2.1...v0.2.2) (2020-06-17)
 
 
