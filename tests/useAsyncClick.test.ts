@@ -48,7 +48,7 @@ describe("useAsyncClick", () => {
     let res1;
     let res2;
     const { result, rerender, unmount } = renderHook(
-      props => useAsyncClick<number>(props),
+      (props) => useAsyncClick<number>(props),
       {
         initialProps: asyncFn,
       }

@@ -8,7 +8,7 @@ describe("useDeepEffect", () => {
   let obj2 = { a: 1, b: { b1: 2 } };
   let obj3 = { a: 1, b: { b1: 0 } };
 
-  it("Same values", done => {
+  it("Same values", (done) => {
     const { rerender } = renderHook(
       ({ obj }) => {
         const firstRenderRef = useRef(true);

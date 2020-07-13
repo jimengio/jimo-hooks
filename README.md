@@ -87,7 +87,7 @@ const Demo = () => {
     <div>
       <input
         defaultValue={"hello"}
-        onChange={e => {
+        onChange={(e) => {
           setText(e.target.value);
         }}
       />
@@ -114,7 +114,7 @@ const Demo = () => {
   // Debounce callback
   const [debouncedCallback] = useDebouncedCallback(
     // function
-    value => {
+    (value) => {
       setValue(value);
     },
     // delay in ms
@@ -123,7 +123,7 @@ const Demo = () => {
 
   return (
     <div>
-      <input onChange={e => debouncedCallback(e.target.value)} />
+      <input onChange={(e) => debouncedCallback(e.target.value)} />
       <p>Debounced value: {value}</p>
     </div>
   );

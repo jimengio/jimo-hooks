@@ -27,7 +27,7 @@ describe("useThrottle", () => {
     let hook: RenderHookResult<number, number>;
 
     act(() => {
-      hook = renderHook(props => useThrottle(props, 200), {
+      hook = renderHook((props) => useThrottle(props, 200), {
         initialProps: 0,
       });
     });

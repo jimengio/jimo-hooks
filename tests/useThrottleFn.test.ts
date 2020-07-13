@@ -63,7 +63,7 @@ describe("useThrottleFn", () => {
 
   it("callback props", () => {
     let count = 0;
-    const fn = jest.fn(props => {
+    const fn = jest.fn((props) => {
       count = props;
     });
     const { result } = renderHook(() => useThrottleFn(fn, 200));

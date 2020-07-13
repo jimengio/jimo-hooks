@@ -65,7 +65,7 @@ describe("useDebouncedClick", () => {
 
   it("Debounce", async () => {
     let count = 0;
-    const fn = jest.fn(props => {
+    const fn = jest.fn((props) => {
       count = props;
     });
     let hook: RenderHookResult<unknown, ReturnResult<[number]>>;
