@@ -22,6 +22,7 @@ yarn add @jimengio/jimo-hooks
 - [useDebouncedClick](#useDebouncedClick)
 - [useDeepCompareCache](#useDeepCompareCache)
 - [useDeepEffect](#useDeepEffect)
+- [useInterval](#useInterval)
 - [useLoadImg](#useLoadImg)
 - [useMountedState](#useMountedState)
 - [useThrottle](#useThrottle)
@@ -218,6 +219,33 @@ const Demo = ({ value: Object }) => {
   useDeepEffect(() => {
     // do something
   }, [value]);
+
+  // ...
+};
+```
+
+### useInterval
+
+Handle the setInterval timer function.
+
+| option | type     | default | explain                                 |
+| ------ | -------- | ------- | --------------------------------------- |
+| fn     | function |         | Handle function. (setInterval callback) |
+| delay  | number   | 0       | setInterval ms.                         |
+
+| return | type              | default | explain                           |
+| ------ | ----------------- | ------- | --------------------------------- |
+| state  | `idle`, `running` | `idle`  | Operating status.                 |
+| cancel | function          |         | The clear timer function.         |
+| run    | function          |         | Manual restart interval function. |
+
+```tsx
+import { useInterval } from "@jimengio/jimo-hooks";
+
+const Demo = () => {
+  const { state, cancel, run } = useInterval(() => {
+    console.log("hi");
+  }, 1000);
 
   // ...
 };
