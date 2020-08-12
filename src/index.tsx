@@ -4,6 +4,7 @@ import useDebouncedCallback from "./useDebouncedCallback";
 import useDebouncedClick from "./useDebouncedClick";
 import useDeepCompareCache from "./useDeepCompareCache";
 import useDeepEffect from "./useDeepEffect";
+import useInterval from "./useInterval";
 import useLoadImg from "./useLoadImg";
 import useMountedState from "./useMountedState";
 import useThrottle from "./useThrottle";
@@ -18,6 +19,7 @@ export {
   useDebouncedClick,
   useDeepCompareCache,
   useDeepEffect,
+  useInterval,
   useLoadImg,
   useMountedState,
   useThrottle,
