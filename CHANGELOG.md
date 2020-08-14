@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/jimengio/jimo-hooks/compare/v0.3.1...v0.4.0) (2020-08-15)
+
+
+### Features
+
+* useInterval (Handle the setInterval timer function) ([310423b](https://github.com/jimengio/jimo-hooks/commit/310423b2a6050cab64b6f699045c38ff8414ee8d))
+
+
+
 ## [0.3.1](https://github.com/jimengio/jimo-hooks/compare/v0.3.0...v0.3.1) (2020-07-21)
 
 
