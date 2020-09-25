@@ -9,10 +9,12 @@ import useDeepCompareCache from "./useDeepCompareCache";
 
 export type EImgState = "loading" | "done" | "error" | "idle";
 
-type ImageProps = React.DetailedHTMLProps<
+export type ImageProps = React.DetailedHTMLProps<
   React.ImgHTMLAttributes<HTMLImageElement>,
   HTMLImageElement
 >;
+
+export type ImgElement = React.ReactElement<ImageProps>;
 
 export default function useLoadImg(options: {
   src?: string;
@@ -21,7 +23,7 @@ export default function useLoadImg(options: {
   style?: CSSProperties;
   imgProps?: ImageProps;
 }): {
-  imgNode: JSX.Element;
+  imgNode: ImgElement;
   state: EImgState;
   loading: boolean;
   isError: boolean;
