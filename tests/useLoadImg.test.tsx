@@ -26,10 +26,7 @@ describe("useLoadImg", () => {
     expect(result.current.loading).toEqual(true);
     expect(result.current.isError).toEqual(false);
 
-    const node: React.ReactElement<React.DetailedHTMLProps<
-      React.ImgHTMLAttributes<HTMLImageElement>,
-      HTMLImageElement
-    >> = result.current.imgNode;
+    const node = result.current.imgNode;
 
     class ImgNode extends Component {
       render() {
@@ -71,10 +68,7 @@ describe("useLoadImg", () => {
     };
     const { result } = renderHook(() => useLoadImg(optionsObj));
 
-    const node: React.ReactElement<React.DetailedHTMLProps<
-      React.ImgHTMLAttributes<HTMLImageElement>,
-      HTMLImageElement
-    >> = result.current.imgNode;
+    const node = result.current.imgNode;
 
     expect(node.type).toEqual("img");
     expect(node.props.src).toEqual(optionsObj.src);
