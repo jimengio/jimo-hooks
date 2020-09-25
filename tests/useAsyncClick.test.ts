@@ -3,7 +3,7 @@ import { renderHook, act } from "@testing-library/react-hooks";
 import useAsyncClick from "../src/useAsyncClick";
 
 const asyncFn = (count: number): Promise<number> => {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     setTimeout(
       (value: number) => {
         res(value);
@@ -34,8 +34,8 @@ describe("useAsyncClick", () => {
 
     expect(result.current.loading).toEqual(false);
 
-    act(() => {
-      result.current.callback(1);
+    void act(() => {
+      void result.current.callback(1);
     });
 
     expect(result.current.loading).toEqual(true);
@@ -77,8 +77,8 @@ describe("useAsyncClick", () => {
 
     jest.useFakeTimers();
     rerender(asyncFn);
-    act(() => {
-      result.current.callback(2);
+    void act(() => {
+      void result.current.callback(2);
     });
 
     expect(result.current.loading).toEqual(true);

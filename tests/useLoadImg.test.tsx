@@ -1,4 +1,6 @@
+import React, { Component } from "react";
 import { renderHook, act } from "@testing-library/react-hooks";
+import ReactTestUtils from "react-dom/test-utils";
 
 import useLoadImg from "../src/useLoadImg";
 
@@ -24,22 +26,35 @@ describe("useLoadImg", () => {
     expect(result.current.loading).toEqual(true);
     expect(result.current.isError).toEqual(false);
 
-    const node = result.current.imgNode;
+    const node: React.ReactElement<React.DetailedHTMLProps<
+      React.ImgHTMLAttributes<HTMLImageElement>,
+      HTMLImageElement
+    >> = result.current.imgNode;
 
-    // [TODO] Manual
-    act(() => {
-      node.props.onError();
+    class ImgNode extends Component {
+      render() {
+        return <div>{node}</div>;
+      }
+    }
+
+    const rendered = ReactTestUtils.renderIntoDocument<Component>(
+      <ImgNode />
+    ) as Component;
+    const img = ReactTestUtils.findRenderedDOMComponentWithTag(rendered, "img");
+    void act(() => {
+      ReactTestUtils.Simulate.error(img);
     });
+
     expect(onError).toHaveBeenCalled();
     expect(result.current.imgNode).not.toBeNull();
     expect(result.current.state).toEqual("error");
     expect(result.current.loading).toEqual(false);
     expect(result.current.isError).toEqual(true);
 
-    // [TODO] Manual
-    act(() => {
-      node.props.onLoad();
+    void act(() => {
+      ReactTestUtils.Simulate.load(img);
     });
+
     expect(onLoad).toHaveBeenCalled();
     expect(result.current.imgNode).not.toBeNull();
     expect(result.current.state).toEqual("done");
@@ -56,12 +71,15 @@ describe("useLoadImg", () => {
     };
     const { result } = renderHook(() => useLoadImg(optionsObj));
 
-    expect(result.current.imgNode.type).toEqual("img");
-    expect(result.current.imgNode.props.src).toEqual(optionsObj.src);
-    expect(result.current.imgNode.props.style).toEqual(optionsObj.style);
-    expect(result.current.imgNode.props.className).toEqual(
-      optionsObj.className
-    );
+    const node: React.ReactElement<React.DetailedHTMLProps<
+      React.ImgHTMLAttributes<HTMLImageElement>,
+      HTMLImageElement
+    >> = result.current.imgNode;
+
+    expect(node.type).toEqual("img");
+    expect(node.props.src).toEqual(optionsObj.src);
+    expect(node.props.style).toEqual(optionsObj.style);
+    expect(node.props.className).toEqual(optionsObj.className);
     expect(result.current.imgNode.key).toEqual(optionsObj.imgProps.key);
   });
 });

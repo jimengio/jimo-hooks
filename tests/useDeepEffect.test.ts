@@ -4,9 +4,9 @@ import { renderHook } from "@testing-library/react-hooks";
 import useDeepEffect from "../src/useDeepEffect";
 
 describe("useDeepEffect", () => {
-  let obj1 = { a: 1, b: { b1: 2 } };
-  let obj2 = { a: 1, b: { b1: 2 } };
-  let obj3 = { a: 1, b: { b1: 0 } };
+  const obj1 = { a: 1, b: { b1: 2 } };
+  const obj2 = { a: 1, b: { b1: 2 } };
+  const obj3 = { a: 1, b: { b1: 0 } };
 
   it("Same values", (done) => {
     const { rerender } = renderHook(

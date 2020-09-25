@@ -76,14 +76,14 @@ describe("useInterval", () => {
     expect(fn).toHaveBeenCalledTimes(2);
     expect(result.current.state).toEqual("running");
 
-    act(() => {
+    void act(() => {
       result.current.cancel();
     });
     expect(result.current.state).toEqual("idle");
     jest.runAllTimers();
     expect(count).toBe(2);
 
-    act(() => {
+    void act(() => {
       result.current.run();
     });
     expect(result.current.state).toEqual("running");
@@ -91,7 +91,7 @@ describe("useInterval", () => {
     expect(count).toEqual(3);
     expect(fn).toHaveBeenCalledTimes(3);
 
-    act(() => {
+    void act(() => {
       result.current.cancel();
     });
     expect(result.current.state).toEqual("idle");
@@ -118,7 +118,7 @@ describe("useInterval", () => {
     jest.advanceTimersByTime(200);
     expect(fn).toHaveBeenCalledTimes(1);
 
-    act(() => {
+    void act(() => {
       result.current.cancel();
       result.current.run();
     });
