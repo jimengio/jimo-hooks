@@ -3,8 +3,8 @@ import { renderHook } from "@testing-library/react-hooks";
 import useDeepCompareCache from "../src/useDeepCompareCache";
 
 describe("useDeepCompareCache", () => {
-  let obj1 = { a: 1, b: { b1: 2 } };
-  let obj2 = { a: 1, b: { b1: 2 } };
+  const obj1 = { a: 1, b: { b1: 2 } };
+  const obj2 = { a: 1, b: { b1: 2 } };
 
   it("Origin value", () => {
     const { result } = renderHook(() => useDeepCompareCache(obj1));

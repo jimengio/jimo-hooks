@@ -6,8 +6,13 @@
 /dist
 /lib
 /esm
-/example
 
+LICENSE
+CHANGELOG.md
+*ignore
+
+yarn.lock
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+

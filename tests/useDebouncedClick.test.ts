@@ -7,7 +7,7 @@ import {
 import useDebouncedClick, { ReturnResult } from "../src/useDebouncedClick";
 
 const asyncFn = (count: number): Promise<number> => {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     setTimeout(
       (value: number) => {
         res(value);
@@ -18,13 +18,13 @@ const asyncFn = (count: number): Promise<number> => {
   });
 };
 
-const errFn = (): Promise<number> => {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      rej(0);
-    }, 0);
-  });
-};
+// const errFn = (): Promise<number> => {
+//   return new Promise((res, rej) => {
+//     setTimeout(() => {
+//       rej(0);
+//     }, 0);
+//   });
+// };
 
 describe("useDebouncedClick", () => {
   beforeAll(() => {
@@ -46,7 +46,7 @@ describe("useDebouncedClick", () => {
   it("Loading state", async () => {
     let hook: RenderHookResult<unknown, ReturnResult<[number]>>;
 
-    act(() => {
+    void act(() => {
       hook = renderHook(() => useDebouncedClick(asyncFn, 200));
     });
 
@@ -65,12 +65,12 @@ describe("useDebouncedClick", () => {
 
   it("Debounce", async () => {
     let count = 0;
-    const fn = jest.fn((props) => {
+    const fn = jest.fn((props: number) => {
       count = props;
     });
     let hook: RenderHookResult<unknown, ReturnResult<[number]>>;
 
-    act(() => {
+    void act(() => {
       hook = renderHook(() => useDebouncedClick<void>(fn as any, 200));
     });
 
